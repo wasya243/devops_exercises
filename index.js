@@ -1,8 +1,10 @@
 const express = require('express')
 const { uuid } = require('uuidv4')
 
+require('dotenv').config()
+
 const app = express()
-const port = 3000
+const port = process.env.PORT
 
 app.use((req, res, next) => {
   console.log(`Request id: ${uuid()}, method: ${req.method}, url: ${req.url}`);
