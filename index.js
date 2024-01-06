@@ -1,10 +1,13 @@
-const express = require('express')
-const { uuid } = require('uuidv4')
+const express = require('express');
+const { uuid } = require('uuidv4');
+const cors = require('cors');
 
-require('dotenv').config()
+require('dotenv').config();
 
-const app = express()
-const port = process.env.PORT
+const app = express();
+const port = process.env.PORT;
+
+app.use(cors());
 
 app.use((req, res, next) => {
   console.log(`Request id: ${uuid()}, method: ${req.method}, url: ${req.url}`);
@@ -21,5 +24,5 @@ app.get('*', function(req, res){
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${port}`);
+});

@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-const SERVER_URL = 'http://3.250.44.184:3000';
+const SERVER_URL = 'http://34.245.20.85:3000';
 
 async function run() {
   try {
