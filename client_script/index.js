@@ -1,14 +1,16 @@
 const fetch = require('node-fetch');
 
-const SERVER_URL = 'http://34.245.20.85:3000';
+require('dotenv').config();
+
+const SERVER_URL = process.env.SERVER_ONE_URL;
 
 async function run() {
   try {
     for(let i = 0; i < 1000; i++) {
-      const res = await fetch(SERVER_URL);
-      const parsed = await res.text();
+      const res = await fetch(`${SERVER_URL}/avg-grades`);
+      const parsed = await res.json();
 
-      console.log(`${i} - text ${parsed}`);
+      console.log(`${i} - result ${JSON.stringify(parsed)}`);
     }
   } catch (err) {
     console.log('here-err', err);
